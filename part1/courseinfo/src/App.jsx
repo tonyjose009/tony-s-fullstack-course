@@ -13,12 +13,19 @@ const Header = () => {
     )
 }
 
+const Part = (props) => {
+    return (
+        <p>{props.courseName} {props.exerciseCount}</p>
+    )
+}
+
 const Content = () => {
     return (
         <div>
-            <p>{part1} {exercises1}</p>
-            <p>{part2} {exercises2}</p>
-            <p>{part3} {exercises3}</p>
+            <Part courseName = {part1} exerciseCount = {exercises1} />
+            <Part courseName = {part2} exerciseCount = {exercises2} />
+            <Part courseName = {part3} exerciseCount = {exercises3} />
+
         </div>
     )
 }
