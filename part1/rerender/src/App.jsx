@@ -2,7 +2,7 @@ import {useState} from "react";
 
 const Display = ({counter}) => { return (<div className="app">Counter={counter}</div>) }
 
-const Button = ({onClick, label}) => { return (<button onClick={onClick}>{label}</button>)}
+const Button = ({onClickEventHandler, label}) => { return (<button onClick={onClickEventHandler}>{label}</button>)}
 
 
 
@@ -25,9 +25,9 @@ const App = () => {
     return (
         <div>
             <Display counter={counter} />
-            <Button onClick={increaseCounter} label="Increase" />
-            <Button onClick={decreaseCounter} label="Decrease" />
-            <Button onClick={resetCounter} label="Reset" />
+            <Button onClickEventHandler={increaseCounter} label="Increase" />
+            <Button onClickEventHandler={decreaseCounter} label="Decrease" />
+            <Button onClickEventHandler={resetCounter} label="Reset" />
         </div>
     )
 }
