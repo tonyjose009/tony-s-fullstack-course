@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {useState} from "react";
+const App = () => {
+    const [value, setValue] = useState(0)
 
-function App() {
-  const [count, setCount] = useState(0)
+    const setToValue = (newValue) => {
+        console.log('newValue=', newValue)
+        setValue(newValue);
+    }
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    const Display = ({value}) => {
+        return (
+            <p>{value}</p>
+        )
+    }
+
+
+    const Button = ({onClickHandler, text}) => {
+        return (
+            <button onClick={onClickHandler}> {text}</button>
+        )
+    }
+
+
+
+    return (
+        <div>
+            <Display value={value} />
+            <Button onClickHandler={ () => {setValue(value-1)}} text={'Decrement'}></Button>
+            <Button onClickHandler={ () => {setValue(1000)}} text={'Thousand'}></Button>
+            <Button onClickHandler={ () => {setValue(0)}} text={'Reset'}></Button>
+            <Button onClickHandler={ () => {setValue(value+1)}} text={'Increment'}></Button>
+        </div>
+    )
 }
-
 export default App
