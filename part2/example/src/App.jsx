@@ -1,18 +1,16 @@
 import { useState } from 'react'
+import Note from './components/Note'
 
-const App = (props) => {
-    const { notes } = props
-
+const App = ({notes}) => {
     return (
         <div>
             <h1>Notes</h1>
-            <ul>
-                {/*{notes.map( function(note, index) {*/}
-                {/*    return <li key={index}>{note.content}</li>*/}
+            <ul id="notes">
+                {/*{notes.map( (note) => {*/}
+                {/*    return  <li key={note.id}>{note.content}</li>*/}
                 {/*})}*/}
-                {notes.map( (note) => {
-                    return  <li key={note.id}>{note.content}</li>
-                })}
+
+                {notes.map((note) => <Note key={note.id} index={note.id} note={note.content} />)}
             </ul>
         </div>
     )
