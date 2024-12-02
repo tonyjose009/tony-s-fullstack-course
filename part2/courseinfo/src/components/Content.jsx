@@ -2,15 +2,15 @@ import Part from './Part'
 
 
 const Content = ({parts}) => {
-    let total = 0
+
     return (
         <div>
             {parts.map(part => {
-                    total += part.exercises
                     return <Part key={part.id} part={part}/>
                 }
             )}
-            <p>Total of {total}</p>
+            Total: {parts.reduce((total, curr) =>  total + curr.exercises, 0)}
+
         </div>
     )
 }
