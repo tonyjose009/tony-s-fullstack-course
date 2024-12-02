@@ -2,10 +2,11 @@ import Part from './Part'
 
 
 const Content = ({parts}) => {
-
+    let totalExercises = 0
     return (
         <div>
             {parts.map(part => {
+                totalExercises += part.exercises
                     return <Part key={part.id} part={part}/>
                 }
             )}
